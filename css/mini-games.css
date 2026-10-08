@@ -1,0 +1,158 @@
+main {
+    grid-template-rows:
+        auto
+        var(--ontop-footer-padding)
+        auto;
+}
+
+section#body-container {
+    grid-column: 1;
+    grid-row: 1 / 3;
+    padding-top: var(--header-height);
+    padding-bottom: var(--ontop-footer-padding);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--lighten-secondary-color);
+    isolation: isolate;
+    width: 100vw;
+    height: calc(100vh - var(--header-height));
+}
+
+div#card {
+    --ps: calc(var(--big-ps) * 2);
+    --border-width: var(--common-border-width);
+    --shadow-left: var(--common-shadow-left);
+    --shadow-top: var(--common-shadow-top);
+    --border-geometry: polygon(
+        0 0,
+        100% 0,
+        calc(100% - var(--ps)) 50%,
+        100% 100%,
+        0 100%,
+        var(--ps) 50%
+    );
+    --content-geometry: var(--border-geometry);
+    --border-color: var(--white-color);
+    
+    width: 70%;
+    max-width: 48rem;
+
+    & > div.content {
+        padding: 3rem 4rem 1.5rem 4rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        background-color: var(--darken-secondary-color);
+        color: var(--white-color);
+        box-sizing: border-box;
+
+        & > section:first-of-type {
+            display: flex;
+            align-items: center;
+            max-width: 36rem;
+
+            & > div {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                row-gap: 1rem;
+
+                & h2 {
+                    margin-bottom: 0.5rem;
+                    font-size: 2.5rem;
+                    letter-spacing: 0.1rem;
+                }
+    
+                & p {
+                    font-size: 1.25rem;
+                    font-weight: 500;
+    
+                    &:last-of-type {
+                        font-weight: 600;
+                    }
+                }
+            }
+
+            & > img {
+                width: 14rem;
+                object-fit: cover;
+                aspect-ratio: 1 / 1;
+                transform: scale(1.2);
+            }
+        }
+
+        & > section:last-of-type {
+            display: flex;
+        }
+    }
+}
+
+button#play-mini-game-button {
+    --ps: var(--small-ps);
+    --border-width: var(--common-border-width);
+    --shadow-left: var(--common-shadow-left);
+    --shadow-top: var(--common-shadow-top);
+    --border-color: var(--lighten-secondary-color);
+    --border-geometry: polygon(
+        0 calc(var(--ps) * 2),
+        var(--ps) calc(var(--ps) * 2),
+        var(--ps) var(--ps),
+        calc(var(--ps) * 2) var(--ps),
+        calc(var(--ps) * 2) 0,
+
+        calc(100% - var(--ps) * 2) 0,
+        calc(100% - var(--ps) * 2) var(--ps),
+        calc(100% - var(--ps)) var(--ps),
+        calc(100% - var(--ps)) calc(var(--ps) * 2),
+        100% calc(var(--ps) * 2),
+
+        100% calc(100% - var(--ps) * 2),
+        calc(100% - var(--ps)) calc(100% - var(--ps) * 2),
+        calc(100% - var(--ps)) calc(100% - var(--ps)),
+        calc(100% - var(--ps) * 2) calc(100% - var(--ps)),
+        calc(100% - var(--ps) * 2) 100%,
+
+        calc(var(--ps) * 2) 100%,
+        calc(var(--ps) * 2) calc(100% - var(--ps)),
+        var(--ps) calc(100% - var(--ps)),
+        var(--ps) calc(100% - var(--ps) * 2),
+        0 calc(100% - var(--ps) * 2)
+    );
+    --content-geometry: var(--border-geometry);
+
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    transition: var(--common-anim-dur) ease-out transform;
+
+    &:hover {
+        transform: translateY(-0.2rem);
+    }
+
+    & > div {
+        padding: 0 6rem;
+        display: flex;
+        align-items: center;
+        background-color: var(--secondary-color);
+        
+        & > p {
+            font-size: 1.9rem;
+            color: var(--white-color);
+        }
+        
+        & > span {
+            --ps: calc(1.9rem / 12);
+            --border-color: var(--white-color);
+            --background-color: var(--secondary-color);
+
+            margin-left: 1rem;
+        }
+    }
+}
+
+footer {
+    grid-row: 2 / 4;
+}

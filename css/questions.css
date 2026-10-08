@@ -1,0 +1,382 @@
+main {
+    grid-template-rows:
+        auto
+        var(--ontop-footer-padding)
+        auto;
+}
+
+section#q-container {
+    grid-column: 1;
+    grid-row: 1 / 3;
+    padding: calc(var(--header-height) + 4rem) 4rem calc(var(--ontop-footer-padding) + 4rem) 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--lighten-secondary-color);
+    isolation: isolate;
+}
+
+div#q-card {
+    --border-width: var(--common-border-width);
+    --shadow-left: var(--common-shadow-left);
+    --shadow-top: var(--common-shadow-top);
+    --border-geometry: inset(0);
+    --content-geometry: var(--border-geometry);
+    --border-color: var(--white-color);
+
+    counter-reset: question-num;
+    width: 100%;
+    max-width: 58rem;
+
+    & > div:first-of-type {
+        position: absolute;
+        top: -1.75rem;
+        left: 1rem;
+        display: flex;
+        align-items: center;
+        z-index: 1;
+
+        & > img {
+            width: 7rem;
+            aspect-ratio: 1 / 1;
+            transform: scale(1.2) rotate(350deg);
+        }
+
+        & > h2 {
+            color: var(--white-color);
+            font-size: 2rem;
+            text-decoration: underline;
+        }
+    }
+
+    & > div.content {
+        padding: 3rem;
+        padding-top: 6rem;
+        display: flex;
+        flex-direction: column;
+        row-gap: 3rem;
+        background-color: var(--darken-secondary-color);
+    }
+}
+
+section.question-container {
+    counter-increment: question-num;
+    display: flex;
+    flex-direction: column;
+
+    & > div:first-of-type {
+        --ps: var(--small-ps);
+        --border-width: var(--common-border-width);
+        --shadow-left: var(--common-shadow-left);
+        --shadow-top: var(--common-shadow-top);
+        --border-color: var(--lighten-secondary-color);
+        --border-geometry: polygon(
+            0 calc(var(--ps) * 2),
+            var(--ps) calc(var(--ps) * 2),
+            var(--ps) var(--ps),
+            calc(var(--ps) * 2) var(--ps),
+            calc(var(--ps) * 2) 0,
+
+            calc(100% - var(--ps) * 2) 0,
+            calc(100% - var(--ps) * 2) var(--ps),
+            calc(100% - var(--ps)) var(--ps),
+            calc(100% - var(--ps)) calc(var(--ps) * 2),
+            100% calc(var(--ps) * 2),
+
+            100% calc(100% - var(--ps) * 2),
+            calc(100% - var(--ps)) calc(100% - var(--ps) * 2),
+            calc(100% - var(--ps)) calc(100% - var(--ps)),
+            calc(100% - var(--ps) * 2) calc(100% - var(--ps)),
+            calc(100% - var(--ps) * 2) 100%,
+
+            calc(var(--ps) * 2) 100%,
+            calc(var(--ps) * 2) calc(100% - var(--ps)),
+            var(--ps) calc(100% - var(--ps)),
+            var(--ps) calc(100% - var(--ps) * 2),
+            0 calc(100% - var(--ps) * 2)
+        );
+        --content-geometry: var(--border-geometry);
+
+        & > div.content {
+            padding: 0.75rem 2rem;
+            background-color: var(--semi-lighten-secondary-color);
+
+            & > h3 {
+                font-size: 1.25rem;
+
+                &::before {
+                    content: counter(question-num) ". ";
+                }
+            }
+        }
+    }
+}
+
+div.answer-selection-container {
+    margin-top: 1.25rem;
+    padding: 0 1rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+    
+    & > button {
+        --ps: var(--small-ps);
+        --border-width: var(--common-border-width);
+        --shadow-left: var(--common-shadow-left);
+        --shadow-top: var(--common-shadow-top);
+        --border-color: var(--lighten-secondary-color);
+        --border-geometry: polygon(
+            0 calc(var(--ps) * 2),
+            var(--ps) calc(var(--ps) * 2),
+            var(--ps) var(--ps),
+            calc(var(--ps) * 2) var(--ps),
+            calc(var(--ps) * 2) 0,
+    
+            calc(100% - var(--ps) * 2) 0,
+            calc(100% - var(--ps) * 2) var(--ps),
+            calc(100% - var(--ps)) var(--ps),
+            calc(100% - var(--ps)) calc(var(--ps) * 2),
+            100% calc(var(--ps) * 2),
+    
+            100% calc(100% - var(--ps) * 2),
+            calc(100% - var(--ps)) calc(100% - var(--ps) * 2),
+            calc(100% - var(--ps)) calc(100% - var(--ps)),
+            calc(100% - var(--ps) * 2) calc(100% - var(--ps)),
+            calc(100% - var(--ps) * 2) 100%,
+    
+            calc(var(--ps) * 2) 100%,
+            calc(var(--ps) * 2) calc(100% - var(--ps)),
+            var(--ps) calc(100% - var(--ps)),
+            var(--ps) calc(100% - var(--ps) * 2),
+            0 calc(100% - var(--ps) * 2)
+        );
+        --content-geometry: var(--border-geometry);
+
+        transition: var(--common-anim-dur) ease-out transform;
+
+        &:hover {
+            transform: translateY(-0.1rem);
+        }
+
+        & > div.content {
+            padding: 0.5rem 1.75rem;
+            text-align: left;
+            font-size: 1rem;
+            font-weight: 500;
+            background-color: var(--semi-lighten-secondary-color);
+            transition: var(--common-anim-dur) ease-out background-color;
+        }
+    }
+
+    & > button.active > div.content {
+        background-color: var(--semi-lighten-primary-color);
+    }
+}
+
+button#submit-button {
+    --ps: var(--small-ps);
+    --border-width: var(--common-border-width);
+    --shadow-left: var(--common-shadow-left);
+    --shadow-top: var(--common-shadow-top);
+    --border-color: var(--lighten-primary-color);
+    --border-geometry: polygon(
+        0 calc(var(--ps) * 2),
+        var(--ps) calc(var(--ps) * 2),
+        var(--ps) var(--ps),
+        calc(var(--ps) * 2) var(--ps),
+        calc(var(--ps) * 2) 0,
+
+        calc(100% - var(--ps) * 2) 0,
+        calc(100% - var(--ps) * 2) var(--ps),
+        calc(100% - var(--ps)) var(--ps),
+        calc(100% - var(--ps)) calc(var(--ps) * 2),
+        100% calc(var(--ps) * 2),
+
+        100% calc(100% - var(--ps) * 2),
+        calc(100% - var(--ps)) calc(100% - var(--ps) * 2),
+        calc(100% - var(--ps)) calc(100% - var(--ps)),
+        calc(100% - var(--ps) * 2) calc(100% - var(--ps)),
+        calc(100% - var(--ps) * 2) 100%,
+
+        calc(var(--ps) * 2) 100%,
+        calc(var(--ps) * 2) calc(100% - var(--ps)),
+        var(--ps) calc(100% - var(--ps)),
+        var(--ps) calc(100% - var(--ps) * 2),
+        0 calc(100% - var(--ps) * 2)
+    );
+    --content-geometry: var(--border-geometry);
+
+    width: fit-content;
+    transition: var(--common-anim-dur) ease-out transform;
+
+    &:hover {
+        transform: translateY(-0.2rem);
+    }
+
+    & > div.content {
+        padding: 0.5rem 1.75rem;
+        background-color: var(--primary-color);
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--white-color);
+    }
+}
+
+section#r-container {
+    grid-column: 1;
+    grid-row: 1 / 3;
+    padding-top: var(--header-height);
+    padding-bottom: var(--ontop-footer-padding);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--lighten-secondary-color);
+    isolation: isolate;
+    width: 100vw;
+    height: calc(100vh - var(--header-height));
+}
+
+div#r-card {
+    --ps: calc(var(--big-ps) * 2);
+    --border-width: var(--common-border-width);
+    --shadow-left: var(--common-shadow-left);
+    --shadow-top: var(--common-shadow-top);
+    --border-geometry: polygon(
+        0 0,
+        100% 0,
+        calc(100% - var(--ps)) 50%,
+        100% 100%,
+        0 100%,
+        var(--ps) 50%
+    );
+    --content-geometry: var(--border-geometry);
+    --border-color: var(--white-color);
+    
+    width: 70%;
+    max-width: 48rem;
+
+    & > div.content {
+        padding: 3rem 4rem 1.5rem 4rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        background-color: var(--darken-secondary-color);
+        color: var(--white-color);
+        box-sizing: border-box;
+
+        & > section:first-of-type {
+            display: flex;
+            align-items: center;
+            max-width: 36rem;
+
+            & > div {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                row-gap: 1rem;
+
+                & h2 {
+                    margin-bottom: 0.5rem;
+                    font-size: 2.5rem;
+                    letter-spacing: 0.1rem;
+                }
+    
+                & p {
+                    font-size: 1.25rem;
+                    font-weight: 500;
+    
+                    &:last-of-type {
+                        font-weight: 600;
+                    }
+
+                    &.selected {
+                        font-weight: 700;
+                        &::after {
+                            content: " 🚀";
+                        }
+                    }
+                }
+            }
+
+            & > img {
+                width: 14rem;
+                object-fit: cover;
+                aspect-ratio: 1 / 1;
+                transform: scale(1.2);
+            }
+        }
+
+        & > section:last-of-type {
+            display: flex;
+        }
+    }
+}
+
+button#register-now-button {
+    --ps: var(--small-ps);
+    --border-width: var(--common-border-width);
+    --shadow-left: var(--common-shadow-left);
+    --shadow-top: var(--common-shadow-top);
+    --border-color: var(--lighten-secondary-color);
+    --border-geometry: polygon(
+        0 calc(var(--ps) * 2),
+        var(--ps) calc(var(--ps) * 2),
+        var(--ps) var(--ps),
+        calc(var(--ps) * 2) var(--ps),
+        calc(var(--ps) * 2) 0,
+
+        calc(100% - var(--ps) * 2) 0,
+        calc(100% - var(--ps) * 2) var(--ps),
+        calc(100% - var(--ps)) var(--ps),
+        calc(100% - var(--ps)) calc(var(--ps) * 2),
+        100% calc(var(--ps) * 2),
+
+        100% calc(100% - var(--ps) * 2),
+        calc(100% - var(--ps)) calc(100% - var(--ps) * 2),
+        calc(100% - var(--ps)) calc(100% - var(--ps)),
+        calc(100% - var(--ps) * 2) calc(100% - var(--ps)),
+        calc(100% - var(--ps) * 2) 100%,
+
+        calc(var(--ps) * 2) 100%,
+        calc(var(--ps) * 2) calc(100% - var(--ps)),
+        var(--ps) calc(100% - var(--ps)),
+        var(--ps) calc(100% - var(--ps) * 2),
+        0 calc(100% - var(--ps) * 2)
+    );
+    --content-geometry: var(--border-geometry);
+
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    transition: var(--common-anim-dur) ease-out transform;
+
+    &:hover {
+        transform: translateY(-0.2rem);
+    }
+
+    & > div {
+        padding: 0 6rem;
+        display: flex;
+        align-items: center;
+        background-color: var(--secondary-color);
+        
+        & > p {
+            font-size: 1.9rem;
+            color: var(--white-color);
+        }
+        
+        & > span {
+            --ps: calc(1.9rem / 12);
+            --border-color: var(--white-color);
+            --background-color: var(--secondary-color);
+
+            margin-left: 1rem;
+        }
+    }
+}
+
+footer {
+    grid-row: 2 / 4;
+}

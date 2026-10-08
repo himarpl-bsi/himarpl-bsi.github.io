@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HRPL</title>
+    <link rel="stylesheet" href="css/font.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/mini-games.css">
+    <script defer src="js/navigation.js"></script>
+</head>
+<body>
+    <header>
+        <section class="hrpl-logo">
+            <img src="images/logo-hrpl.png" alt="Logo HRPL" width="58">
+            <div>
+                <h4>HRPL UBSI</h4>
+                <h6>Himpunan Mahasiswa Rekayasa Perangkat Lunak</h6>
+            </div>
+            
+        </section>
+        <nav id="big-nav-bar" class="custom-geometry shadowed bordered">
+            <div class="content">
+                <button onclick="movePageTo('home')">HOME</button>
+                <button onclick="movePageTo('about')">ABOUT</button>
+                <button onclick="movePageTo('division')">DIVISION</button>
+                <button onclick="movePageTo('news')">PROJECT & NEWS</button>
+                <button disabled>MINI GAMES</button>
+            </div>
+        </nav>
+        <section>
+            <button>JOIN HRPL!</button>
+        </section>
+    </header>
+    <main>
+        <section id="body-container">
+            <div id="card" class="custom-geometry shadowed bordered">
+                <div class="content">
+                    <section>
+                        <div>
+                            <h2>Hai, RPLearners!!</h2>
+                            <p>Udah siap menentukan di Divisi mana yang "KAMU BANGET?"</p>
+                            <p>YUK LANGSUNG MULAI AJA! 🚀</p>
+                        </div>
+                        <img src="images/maskot-finder-bordered.png" alt="">
+                    </section>
+                    <button id="play-mini-game-button" class="custom-geometry shadowed bordered custom-button" onclick="movePageTo('questions')">
+                        <div class="content"><p class="silkscreen-font-adjusted">PLAY MINI GAME</p><span class="pixelated-arrow"></span></div>
+                    </button>
+                    <section>
+                        <p>⏱️ 15 pertanyaan · 🎁 Ada hadiah di akhir!</p>
+                    </section>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <section>
+                <section class="hrpl-logo">
+                    <img src="images/logo-hrpl.png" alt="Logo HRPL" width="58">
+                    <div>
+                        <h4>HRPL UBSI</h4>
+                        <h6>Himpunan Mahasiswa Rekayasa Perangkat Lunak</h6>
+                    </div>
+                </section>
+                <section>
+                    <p>Himpunan Mahasiswa Rekayasa Perangkat Lunak Universitas Bina Sarana Informatika.</p>
+                    <p>Wadah untuk Mahasiswa HRPL yang doyan Coding, Creative, Collaborative!</p>
+                </section>
+                <section id="social-media-button-container">
+                    <button class="custom-button" onclick="moveUrlTo('https://www.instagram.com/himarpl_ubsi?stkn=MTkwM3R6YWJvMzVneQ==')"></button>
+                    <button class="custom-button" onclick="moveUrlTo('https://www.tiktok.com/@himarpl_ubsi?_r=1&_t=ZS-99roGVNg8Vo')"></button>
+                    <button class="custom-button"></button>
+                    <button class="custom-button"></button>
+                    <button class="custom-button"></button>
+                </section>
+            </section>
+            <section>
+                <button class="custom-button silkscreen-font-adjusted">NAVIGASI</button>
+                <button class="custom-button silkscreen-font-adjusted">DAFTAR SEKARANG</button>
+            </section>
+        </footer>
+    </main>
+    <svg width="0" height="0" style="position: absolute;" aria-hidden="true">
+        <defs>
+            <clipPath id="instagram-icon-clip-path" clipPathUnits="objectBoundingBox">
+                <!-- Inner Frame Layer -->
+                <path d="M0.7083 0.375V0.3333H0.6667V0.2917H0.625V0.25H0.375V0.2917H0.3333V0.3333H0.2917V0.375H0.25V0.625H0.2917V0.6667H0.3333V0.7083H0.375V0.75H0.625V0.7083H0.6667V0.6667H0.7083V0.625H0.75V0.375H0.7083ZM0.6667 0.5833H0.625V0.625H0.5833V0.6667H0.4167V0.625H0.375V0.5833H0.3333V0.4167H0.375V0.375H0.4167V0.3333H0.5833V0.375H0.625V0.4167H0.6667V0.5833Z" />
+                <!-- Outer Frame Layer -->
+                <path d="M0.9167 0.2083V0.125H0.875V0.0833H0.7917V0.0416H0.2083V0.0833H0.125V0.125H0.0833V0.2083H0.0417V0.7917H0.0833V0.875H0.125V0.9167H0.2083V0.9583H0.7917V0.9167H0.875V0.875H0.9167V0.7917H0.9583V0.2083H0.9167ZM0.875 0.7917H0.8333V0.8333H0.7917V0.875H0.2083V0.8333H0.1667V0.7917H0.125V0.2083H0.1667V0.1667H0.2083V0.125H0.7917V0.1667H0.8333V0.2083H0.875V0.7917Z" />
+                <!-- Small Accent Block -->
+                <path d="M0.7917 0.2083H0.7083V0.2917H0.7917V0.2083Z" />
+            </clipPath>
+        </defs>
+    </svg>
+    <svg width="0" height="0" style="position: absolute;" aria-hidden="true">
+        <defs>
+            <clipPath id="tiktok-icon-clip-path" clipPathUnits="objectBoundingBox">
+                <path d="M0.9167 0.2916V0.4583H0.8333V0.4167H0.75V0.375H0.7083V0.7917H0.6667V0.8333H0.625V0.875H0.5833V0.9167H0.5417V0.9583H0.2917V0.9167H0.25V0.875H0.2083V0.8333H0.1667V0.7917H0.125V0.75H0.0833V0.5833H0.125V0.5H0.1667V0.4583H0.2083V0.4167H0.25V0.375H0.4167V0.5417H0.3333V0.5833H0.2917V0.7083H0.3333V0.75H0.4583V0.7083H0.5V0.0416H0.6667V0.0833H0.7083V0.1667H0.75V0.2083H0.7917V0.25H0.8333V0.2916H0.9167Z" />
+            </clipPath>
+        </defs>
+    </svg>
+    <svg width="0" height="0" style="position: absolute;" aria-hidden="true">
+        <defs>
+            <clipPath id="youtube-icon-clip-path" clipPathUnits="objectBoundingBox">
+                <path d="M0.9167 0.2917V0.2083H0.8333V0.1667H0.1667V0.2083H0.0833V0.2917H0.0417V0.7083H0.0833V0.7917H0.1667V0.8333H0.8333V0.7917H0.9167V0.7083H0.9583V0.2917H0.9167ZM0.5 0.625H0.4167V0.375H0.5V0.4167H0.5833V0.4583H0.6667V0.5417H0.5833V0.5833H0.5 0.625Z" />
+            </clipPath>
+        </defs>
+    </svg>
+    <svg width="0" height="0" style="position: absolute;" aria-hidden="true">
+        <defs>
+            <clipPath id="discord-icon-clip-path" clipPathUnits="objectBoundingBox">
+                <path d="M0.9167 0.4583V0.3333H0.875V0.25H0.8333V0.2083H0.75V0.1667H0.625V0.2083H0.375V0.1667H0.25V0.2083H0.1667V0.25H0.125V0.3333H0.0833V0.4583H0.0417V0.75H0.125V0.7917H0.2083V0.8333H0.2917V0.75H0.25V0.7083H0.3333V0.75H0.375V0.7917H0.625V0.75H0.6667V0.7083H0.75V0.75H0.7083V0.8333H0.7917V0.7917H0.875V0.75H0.9583V0.4583H0.9167ZM0.375 0.625H0.2917V0.5833H0.25V0.5H0.2917V0.4583H0.375V0.5H0.4167V0.5833H0.375V0.625ZM0.75 0.5833H0.7083V0.625H0.625V0.5833H0.5833V0.5H0.625V0.4583H0.7083V0.5H0.75V0.5833Z" />
+            </clipPath>
+        </defs>
+    </svg>
+    <svg width="0" height="0" style="position: absolute;" aria-hidden="true">
+        <defs>
+            <clipPath id="linktree-icon-clip-path" clipPathUnits="objectBoundingBox">
+                <path d="M0.5723 0.2439L0.7392 0.0723L0.8361 0.1715L0.661 0.3384H0.9072V0.4761H0.6599L0.8361 0.6472L0.7392 0.7445L0.5 0.5041L0.2608 0.7445L0.164 0.6476L0.3402 0.4765H0.0928V0.3384H0.3389L0.1639 0.1715L0.2608 0.0723L0.4276 0.2439V0H0.5723V0.2439ZM0.4276 0.6733H0.5723V1H0.4276V0.6733Z" />
+            </clipPath>
+        </defs>
+    </svg>
+</body>
+</html>

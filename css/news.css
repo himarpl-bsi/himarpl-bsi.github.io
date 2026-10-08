@@ -1,0 +1,118 @@
+main {
+    grid-template-rows:
+        auto
+        var(--ontop-footer-padding)
+        auto;
+}
+
+section#body-container {
+    grid-column: 1;
+    grid-row: 1 / 3;
+    padding: calc(var(--header-height) + 2rem) 4rem calc(var(--ontop-footer-padding) + 4rem) 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    & > div {
+        margin-bottom: 3rem;
+        padding: 0.1rem 2rem;
+        width: fit-content;
+        background-color: var(--darken-secondary-color);
+
+        & > h2 {
+            font-size: 1.9rem;
+            color: var(--white-color);
+        }
+    }
+}
+
+section#news-container {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 4rem;
+    max-width: 58rem;
+}
+
+div.news-card {
+    --ps: var(--small-ps);
+    --border-width: var(--common-border-width);
+    --shadow-left: var(--common-shadow-left);
+    --shadow-top: var(--common-shadow-top);
+    --border-color: var(--primary-color);
+    --border-geometry: polygon(
+        0 calc(var(--ps) * 3),
+        var(--ps) calc(var(--ps) * 3),
+        var(--ps) calc(var(--ps) * 2),
+        calc(var(--ps) * 2) calc(var(--ps) * 2),
+        calc(var(--ps) * 2) var(--ps),
+        calc(var(--ps) * 3) var(--ps),
+        calc(var(--ps) * 3) 0,
+
+        calc(100% - var(--ps) * 3) 0,
+        calc(100% - var(--ps) * 3) var(--ps),
+        calc(100% - var(--ps) * 2) var(--ps),
+        calc(100% - var(--ps) * 2) calc(var(--ps) * 2),
+        calc(100% - var(--ps)) calc(var(--ps) * 2),
+        calc(100% - var(--ps)) calc(var(--ps) * 3),
+        100% calc(var(--ps) * 3),
+
+        100% calc(100% - var(--ps) * 3),
+        calc(100% - var(--ps)) calc(100% - var(--ps) * 3),
+        calc(100% - var(--ps)) calc(100% - var(--ps) * 2),
+        calc(100% - var(--ps) * 2) calc(100% - var(--ps) * 2),
+        calc(100% - var(--ps) * 2) calc(100% - var(--ps)),
+        calc(100% - var(--ps) * 3) calc(100% - var(--ps)),
+        calc(100% - var(--ps) * 3) 100%,
+
+        calc(var(--ps) * 3) 100%,
+        calc(var(--ps) * 3) calc(100% - var(--ps)),
+        calc(var(--ps) * 2) calc(100% - var(--ps)),
+        calc(var(--ps) * 2) calc(100% - var(--ps) * 2),
+        var(--ps) calc(100% - var(--ps) * 2),
+        var(--ps) calc(100% - var(--ps) * 3),
+        0 calc(100% - var(--ps) * 3)
+    );
+    --content-geometry: var(--border-geometry);
+
+    & > div.content {
+        display: flex;
+        flex-direction: column;
+        height: 18rem;
+
+        & > div:first-of-type {
+            flex: 1;
+            background-image: var(--img-src);
+            background-size: cover;
+            background-position: center;
+        }
+
+        & > div:last-of-type {
+            padding: 1rem;
+            width: 100%;
+            height: fit-content;
+            background-color: var(--fourth-color);
+            box-sizing: border-box;
+
+            & > h5 {
+                margin-bottom: 0.5rem;
+                font-size: 1.2rem;
+                letter-spacing: 0.1rem;
+                color: var(--fifth-color);
+            }
+
+            & > * {
+                margin: 0;
+                display: -webkit-box;
+                line-clamp: 2;          
+                -webkit-line-clamp: 2;          
+                -webkit-box-orient: vertical;  
+                overflow: hidden;
+            }
+        }
+    }
+}
+
+footer {
+    grid-row: 2 / 4;
+}

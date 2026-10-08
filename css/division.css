@@ -1,0 +1,157 @@
+main {
+    grid-template-rows:
+        auto
+        var(--ontop-footer-padding)
+        auto;
+}
+
+section#body-container {
+    grid-column: 1;
+    grid-row: 1 / 3;
+    padding: calc(var(--header-height) + 2rem) 4rem calc(var(--ontop-footer-padding) + 2rem) 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 2rem;
+    background-color: var(--white-color);
+    isolation: isolate;
+
+    & > div {
+        color: var(--darken-secondary-color);
+        width: fit-content;
+
+        & > h2 {
+            font-size: 1.9rem;
+        }
+    }
+
+    & > section:nth-of-type(odd) {
+        --title-color: var(--semi-darken-primary-color);
+    }
+
+    & > section:nth-of-type(even) {
+        --title-color: var(--darken-secondary-color);
+    }
+}
+
+section.division-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
+    max-width: 52rem;
+
+    & > span {
+        position: absolute;
+        top: calc(var(--header-height) * -1);
+        width: 0;
+        height: 0;
+    }
+}
+
+section.division-detail-container {
+    padding: 1rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--lighten-third-color);
+    box-shadow: var(--common-box-shadow);
+
+    & > div {
+        padding: 0.75rem 0;
+        width: 100%;
+        color: var(--title-color);
+        
+        & > hr {
+            margin-top: 0.2rem;
+            height: 0.15rem;
+            background-color: var(--title-color);
+            border: none;
+        }
+    }
+
+    & > section {
+        display: flex;
+        flex-direction: column;
+        row-gap: 1rem;
+    }
+}
+
+section.member-container {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2rem;
+}
+
+div.member-card {
+    --ps: var(--small-ps);
+    --border-width: var(--common-border-width);
+    --shadow-left: var(--common-shadow-left);
+    --shadow-top: var(--common-shadow-top);
+    --border-geometry: polygon(
+        0 calc(var(--ps) * 2),
+        var(--ps) calc(var(--ps) * 2),
+        var(--ps) var(--ps),
+        calc(var(--ps) * 2) var(--ps),
+        calc(var(--ps) * 2) 0,
+
+        calc(100% - var(--ps) * 2) 0,
+        calc(100% - var(--ps) * 2) var(--ps),
+        calc(100% - var(--ps)) var(--ps),
+        calc(100% - var(--ps)) calc(var(--ps) * 2),
+        100% calc(var(--ps) * 2),
+
+        100% calc(100% - var(--ps) * 2),
+        calc(100% - var(--ps)) calc(100% - var(--ps) * 2),
+        calc(100% - var(--ps)) calc(100% - var(--ps)),
+        calc(100% - var(--ps) * 2) calc(100% - var(--ps)),
+        calc(100% - var(--ps) * 2) 100%,
+
+        calc(var(--ps) * 2) 100%,
+        calc(var(--ps) * 2) calc(100% - var(--ps)),
+        var(--ps) calc(100% - var(--ps)),
+        var(--ps) calc(100% - var(--ps) * 2),
+        0 calc(100% - var(--ps) * 2)
+    );
+    --content-geometry: var(--border-geometry);
+    --border-color: var(--semi-darken-third-color);
+
+    width: 100%;
+    height: 6rem;
+
+    & > div.content {
+        padding: 0 1.25rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        column-gap: 2rem;
+        width: calc(100% - 2.5rem);
+        height: 100%;
+        background-color: var(--white-color);
+
+        & > section {
+            flex: 1;
+
+            & > h4 {
+                margin-bottom: 0.5rem;
+                font-size: 1.25rem;
+                font-weight: 800;
+            }
+            & > p {
+                font-weight: 500;
+            }
+        }
+
+        & > div {
+            width: 4rem;
+            height: 4rem;
+            background-image: var(--img-src);
+            background-position: center 10%;
+            background-size: cover;
+        }
+    }
+}
+
+footer {
+    grid-row: 2 / 4;
+}

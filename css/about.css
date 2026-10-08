@@ -1,0 +1,570 @@
+main {
+    grid-template-rows: 
+        auto
+        auto
+        auto
+        var(--ontop-footer-padding)
+        auto;
+}
+
+section#upper-container {
+    grid-column: 1;
+    grid-row: 1;
+    padding: calc(var(--header-height) + 2rem) 6rem 4rem 6rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    box-sizing: border-box;
+    background-color: var(--lighten-primary-color);
+    isolation: isolate;
+
+    & > div {
+        margin-bottom: 2rem;
+        padding: 0.1rem 1rem;
+        background-color: var(--semi-darken-third-color);
+        width: fit-content;
+
+        & > h2 {
+            font-size: 1.9rem;
+            color: var(--black-color);
+        }
+    }
+
+    & > section {
+        display: flex;
+        column-gap: 4rem;
+
+        & > section:first-of-type {
+            flex: 1;
+            font-size: 1.1rem;
+            letter-spacing: 0.05rem;
+            max-width: 30rem;
+
+            & span.bigger-text {
+                font-weight: 600;
+                font-size: 1.9rem;
+            }
+
+            & > p:first-of-type {
+                margin-bottom: 1rem;
+            }
+        }
+    }
+}
+
+section#about-card-container {
+    display: grid;
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+    row-gap: 2rem;
+    width: 20rem;
+}
+
+div.about-card {
+    --ps: var(--small-ps);
+    --border-width: var(--common-border-width);
+    --shadow-left: var(--common-shadow-left);
+    --shadow-top: var(--common-shadow-top);
+    --border-geometry: polygon(
+        0 calc(var(--ps) * 2),
+        var(--ps) calc(var(--ps) * 2),
+        var(--ps) var(--ps),
+        calc(var(--ps) * 2) var(--ps),
+        calc(var(--ps) * 2) 0,
+
+        calc(100% - var(--ps) * 2) 0,
+        calc(100% - var(--ps) * 2) var(--ps),
+        calc(100% - var(--ps)) var(--ps),
+        calc(100% - var(--ps)) calc(var(--ps) * 2),
+        100% calc(var(--ps) * 2),
+
+        100% calc(100% - var(--ps) * 2),
+        calc(100% - var(--ps)) calc(100% - var(--ps) * 2),
+        calc(100% - var(--ps)) calc(100% - var(--ps)),
+        calc(100% - var(--ps) * 2) calc(100% - var(--ps)),
+        calc(100% - var(--ps) * 2) 100%,
+
+        calc(var(--ps) * 2) 100%,
+        calc(var(--ps) * 2) calc(100% - var(--ps)),
+        var(--ps) calc(100% - var(--ps)),
+        var(--ps) calc(100% - var(--ps) * 2),
+        0 calc(100% - var(--ps) * 2)
+    );
+    --content-geometry: var(--border-geometry);
+    --border-color: var(--semi-darken-third-color);
+
+    width: 100%;
+    height: auto;
+
+    & > div.content {
+        width: 100%;
+        height: 100%;
+        background-color: var(--white-color);
+    }
+}
+
+section#middle-container {
+    grid-column: 1;
+    grid-row: 2;
+    padding: 4rem 6rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--almost-lighten-primary-color);
+    isolation: isolate;
+
+    & > div {
+        margin-bottom: 2rem;
+        padding: 0.1rem 0.75rem;
+        background-color: var(--semi-lighten-primary-color);
+        width: fit-content;
+
+        & > h2 {
+            font-size: 1.9rem;
+            color: var(--white-color);
+        }
+    }
+
+    & > section {
+        display: flex;
+        column-gap: 4rem;
+    }
+}
+
+section#vision-mision-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    row-gap: 2.5rem;
+
+    & > section {
+        position: relative;
+        font-size: 1rem;
+        max-width: 32rem;
+
+        & > div:first-of-type {
+            --shadow-left: var(--common-shadow-left);
+            --shadow-top: var(--common-shadow-top);
+            --rotation-deg: 357deg;
+            --background-color: var(--primary-color);
+            
+            padding: 0.1rem 1rem;
+            position: absolute;
+            top: -1rem;
+            left: -1rem;
+            width: fit-content;
+            font-size: 1.3rem;
+            color: var(--third-color);
+
+            & > h3 {
+                transform: rotate(var(--rotation-deg));
+            }
+        }
+
+        & > div:last-of-type {
+            padding: 1.5rem 1rem 1rem 1rem;
+            background-color: var(--white-color);
+            box-shadow: var(--common-box-shadow);
+            counter-reset: count;
+
+            & > ol {
+                display: flex;
+                flex-direction: column;
+                row-gap: 0.25rem;
+
+                li {
+                    counter-increment: count;
+                    display: flex;
+                    align-items: center;
+                    column-gap: 1rem;
+                    list-style-type: none;
+                    
+                    &::before {
+                        content: counter(count);
+                        font-size: 2.1rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+div#gather-photos-card {
+    --ps: var(--small-ps);
+    --border-width: var(--common-border-width);
+    --shadow-left: var(--common-shadow-left);
+    --shadow-top: var(--common-shadow-top);
+    --border-geometry: polygon(
+        0 calc(var(--ps) * 3),
+        var(--ps) calc(var(--ps) * 3),
+        var(--ps) calc(var(--ps) * 2),
+        calc(var(--ps) * 2) calc(var(--ps) * 2),
+        calc(var(--ps) * 2) var(--ps),
+        calc(var(--ps) * 3) var(--ps),
+        calc(var(--ps) * 3) 0,
+
+        calc(100% - var(--ps) * 3) 0,
+        calc(100% - var(--ps) * 3) var(--ps),
+        calc(100% - var(--ps) * 2) var(--ps),
+        calc(100% - var(--ps) * 2) calc(var(--ps) * 2),
+        calc(100% - var(--ps)) calc(var(--ps) * 2),
+        calc(100% - var(--ps)) calc(var(--ps) * 3),
+        100% calc(var(--ps) * 3),
+
+        100% calc(100% - var(--ps) * 3),
+        calc(100% - var(--ps)) calc(100% - var(--ps) * 3),
+        calc(100% - var(--ps)) calc(100% - var(--ps) * 2),
+        calc(100% - var(--ps) * 2) calc(100% - var(--ps) * 2),
+        calc(100% - var(--ps) * 2) calc(100% - var(--ps)),
+        calc(100% - var(--ps) * 3) calc(100% - var(--ps)),
+        calc(100% - var(--ps) * 3) 100%,
+
+        calc(var(--ps) * 3) 100%,
+        calc(var(--ps) * 3) calc(100% - var(--ps)),
+        calc(var(--ps) * 2) calc(100% - var(--ps)),
+        calc(var(--ps) * 2) calc(100% - var(--ps) * 2),
+        var(--ps) calc(100% - var(--ps) * 2),
+        var(--ps) calc(100% - var(--ps) * 3),
+        0 calc(100% - var(--ps) * 3)
+    );
+    --content-geometry: var(--border-geometry);
+    --border-color: var(--semi-darken-third-color);
+
+    width: 23rem;
+
+    & > div.content {
+        --slicing-padding: 1rem;
+
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 
+            auto
+            var(--slicing-padding)
+            auto
+            var(--slicing-padding)
+            auto
+        ;
+        height: 100%;
+        
+        & > div {
+            grid-column: 1;
+            background-size: cover;
+
+            &:first-of-type {
+                grid-row: 1 / 3;
+                background-position: center 75%;
+                background-image: url("../images/foto-bersama-2.png");
+            }
+            &:nth-of-type(2) {
+                grid-row: 2 / 5;
+                background-position: center 75%;
+                background-image: url("../images/foto-bersama-3.jpg");
+                clip-path: polygon(0 var(--slicing-padding), 100% 0, 100% 100%, 0 100%);
+            }
+            &:last-of-type {
+                grid-row: 4 / 6;
+                background-position: center 55%;
+                background-image: url("../images/foto-bersama-1.jpg");
+                clip-path: polygon(0 0, 100% var(--slicing-padding), 100% 100%, 0 100%);
+            }
+        }
+    }
+}
+
+section#bottom-container {
+    grid-column: 1;
+    grid-row: 3 / 5;
+    padding: 6rem 4rem calc(var(--ontop-footer-padding) + 4rem) 4rem;
+    background-color: var(--semi-lighten-primary-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    isolation: isolate;
+
+    & > div {
+        margin-bottom: 4rem;
+        padding: 0.1rem 4rem;
+        background-color: var(--white-color);
+        width: fit-content;
+
+        & > h2 {
+            font-size: 1.9rem;
+            color: var(--black-color);
+        }
+    }
+
+    & > section:last-of-type {
+        margin-top: 3rem;
+        & > button {
+            padding: 0.1rem 3rem;
+            background-color: var(--semi-darken-third-color);
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--black-color);
+            border: none;
+            box-shadow: var(--common-box-shadow);
+        }
+
+        & > img {
+            position: absolute;
+            width: 10rem;
+
+            &:first-of-type {
+                transform: translateY(-1.5rem);
+                left: 8rem;
+            }
+            &:last-of-type {
+                transform: translateY(-1rem);
+                right: 8rem;
+            }
+        }
+    }
+}
+
+section#roadmap-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 2rem;
+}
+
+div.roadmap-path-container {
+    display: flex;
+    align-items: center;
+
+    &:first-of-type > div.path-line-canvas::after {
+        clip-path: polygon(
+            17% 0,
+            18% 6%,
+            15% 29%,
+            14% calc(50% - var(--hlw)),
+            14% calc(50% + var(--hlw)),
+            15% 79%,
+            15% 100%,
+
+            calc(15% + var(--lw)) 100%,
+            calc(15% + var(--lw)) 79%,
+            calc(14% + var(--lw)) calc(50% + var(--hlw)),
+
+            60% calc(50% + var(--hlw)),
+            60% calc(50% + var(--hss)),
+            calc(60% + var(--ss)) calc(50% + var(--hss)),
+            calc(60% + var(--ss)) calc(50% - var(--hss)),
+            60% calc(50% - var(--hss)),
+            60% calc(50% - var(--hlw)),
+
+            calc(14% + var(--lw)) calc(50% - var(--hlw)),
+            calc(15% + var(--lw)) 29%,
+            calc(18% + var(--lw)) 6%,
+            calc(17% + var(--lw)) 0
+        );
+    }
+   
+    &:nth-of-type(2) > div.path-line-canvas::after {
+        clip-path: polygon(
+            15% 0,
+            20% 18%,
+            18% 32%,
+            14% calc(50% - var(--hlw)),
+            14% calc(50% + var(--hlw)),
+            15% 75%,
+            17% 92%,
+            18% 100%,
+
+            calc(18% + var(--lw)) 100%,
+            calc(17% + var(--lw)) 92%,
+            calc(15% + var(--lw)) 75%,
+            calc(14% + var(--lw)) calc(50% + var(--hlw)),
+
+            60% calc(50% + var(--hlw)),
+            60% calc(50% + var(--hss)),
+            calc(60% + var(--ss)) calc(50% + var(--hss)),
+            calc(60% + var(--ss)) calc(50% - var(--hss)),
+            60% calc(50% - var(--hss)),
+            60% calc(50% - var(--hlw)),
+
+            calc(14% + var(--lw)) calc(50% - var(--hlw)),
+            calc(18% + var(--lw)) 32%,
+            calc(20% + var(--lw)) 18%,
+            calc(15% + var(--lw)) 0
+        );
+    }
+
+    &:nth-of-type(3) > div.path-line-canvas::after {
+        clip-path: polygon(
+            18% 0,
+            21% 24%,
+            22% 31%,
+            20% calc(50% - var(--hlw)),
+            20% calc(50% + var(--hlw)),
+            17% 67%,
+            18% 77%,
+            17% 100%,
+
+            calc(17% + var(--lw)) 100%,
+            calc(18% + var(--lw)) 77%,
+            calc(17% + var(--lw)) 67%,
+            calc(20% + var(--lw)) calc(50% + var(--hlw)),
+
+            60% calc(50% + var(--hlw)),
+            60% calc(50% + var(--hss)),
+            calc(60% + var(--ss)) calc(50% + var(--hss)),
+            calc(60% + var(--ss)) calc(50% - var(--hss)),
+            60% calc(50% - var(--hss)),
+            60% calc(50% - var(--hlw)),
+
+            calc(20% + var(--lw)) calc(50% - var(--hlw)),
+            calc(22% + var(--lw)) 31%,
+            calc(21% + var(--lw)) 24%,
+            calc(18% + var(--lw)) 0
+        );
+    }
+    
+    &:nth-of-type(4) > div.path-line-canvas::after {
+        clip-path: polygon(
+            17% 0,
+            20% 21%,
+            16% 40%,
+            17% 45%,
+            18% calc(50% - var(--hlw)),
+            18% calc(50% + var(--hlw)),
+            19% 61%,
+            16% 82%,
+            18% 100%,
+
+            calc(18% + var(--lw)) 100%,
+            calc(16% + var(--lw)) 82%,
+            calc(19% + var(--lw)) 61%,
+            calc(18% + var(--lw)) calc(50% + var(--hlw)),
+
+            60% calc(50% + var(--hlw)),
+            60% calc(50% + var(--hss)),
+            calc(60% + var(--ss)) calc(50% + var(--hss)),
+            calc(60% + var(--ss)) calc(50% - var(--hss)),
+            60% calc(50% - var(--hss)),
+            60% calc(50% - var(--hlw)),
+
+            calc(18% + var(--lw)) calc(50% - var(--hlw)),
+            calc(17% + var(--lw)) 45%,
+            calc(16% + var(--lw)) 40%,
+            calc(20% + var(--lw)) 21%,
+            calc(17% + var(--lw)) 0
+        );
+    }
+
+    &:last-of-type > div.path-line-canvas::after {
+        clip-path: polygon(
+            18% 0,
+            19% 28%,
+            20% calc(50% - var(--hlw)),
+            20% calc(50% + var(--hlw)),
+            17% 71%,
+
+            19% calc(100% - var(--lw)),
+            11% calc(95% - var(--lw)),
+            11% 95%,
+            19% 100%,
+            22% 100%,
+            30% 95%,
+            30% calc(95% - var(--lw)),
+            calc(19% + var(--lw)) calc(100% - var(--lw)),
+
+            calc(17% + var(--lw)) 71%,
+            calc(20% + var(--lw)) calc(50% + var(--hlw)),
+
+            60% calc(50% + var(--hlw)),
+            60% calc(50% + var(--hss)),
+            calc(60% + var(--ss)) calc(50% + var(--hss)),
+            calc(60% + var(--ss)) calc(50% - var(--hss)),
+            60% calc(50% - var(--hss)),
+            60% calc(50% - var(--hlw)),
+
+            calc(20% + var(--lw)) calc(50% - var(--hlw)),
+            calc(19% + var(--lw)) 28%,
+            calc(18% + var(--lw)) 0
+        );
+    }
+
+    & > div:first-of-type {
+        padding: 0.25rem 0;
+        width: 3rem;
+        background-color: var(--white-color);
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--semi-darken-primary-color);
+        text-align: center;
+    }
+
+    & > div:last-of-type {
+        --ps: var(--small-ps);
+        --border-width: var(--common-border-width);
+        --shadow-left: var(--common-shadow-left);
+        --shadow-top: var(--common-shadow-top);
+        --border-geometry: polygon(
+            0 calc(var(--ps) * 2),
+            var(--ps) calc(var(--ps) * 2),
+            var(--ps) var(--ps),
+            calc(var(--ps) * 2) var(--ps),
+            calc(var(--ps) * 2) 0,
+
+            calc(100% - var(--ps) * 2) 0,
+            calc(100% - var(--ps) * 2) var(--ps),
+            calc(100% - var(--ps)) var(--ps),
+            calc(100% - var(--ps)) calc(var(--ps) * 2),
+            100% calc(var(--ps) * 2),
+
+            100% calc(100% - var(--ps) * 2),
+            calc(100% - var(--ps)) calc(100% - var(--ps) * 2),
+            calc(100% - var(--ps)) calc(100% - var(--ps)),
+            calc(100% - var(--ps) * 2) calc(100% - var(--ps)),
+            calc(100% - var(--ps) * 2) 100%,
+
+            calc(var(--ps) * 2) 100%,
+            calc(var(--ps) * 2) calc(100% - var(--ps)),
+            var(--ps) calc(100% - var(--ps)),
+            var(--ps) calc(100% - var(--ps) * 2),
+            0 calc(100% - var(--ps) * 2)
+        );
+        --content-geometry: var(--border-geometry);
+        --border-color: var(--semi-darken-third-color);
+
+        width: 32rem;
+
+        & > div.content {
+            padding: 0.75rem;
+            background-color: var(--white-color);
+            
+            & > h4 {
+                margin-bottom: 0.25rem;
+                font-size: 1.3rem;
+                font-weight: 500;
+                color: var(--semi-darken-primary-color);
+            }
+        }
+    }
+}
+
+div.path-line-canvas {
+    --lw: 0.2rem;
+    --hlw: 0.1rem;
+    --ss: 0.8rem;
+    --hss: 0.4rem;
+
+    margin: 0 0.5rem;
+    padding: 1rem 0;
+    position: relative;
+    width: 4rem;
+    height: 100%;
+
+    &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-color: var(--white-color);
+    }
+}
+
+footer {
+    grid-row: 4 / 6;
+}

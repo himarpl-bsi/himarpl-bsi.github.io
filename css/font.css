@@ -1,0 +1,95 @@
+/*
+    Handjet Font
+*/
+
+@font-face {
+    font-family: "Handjet";
+    src: url("../fonts/Handjet/Handjet-Black.ttf");
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Handjet";
+    src: url("../fonts/Handjet/Handjet-ExtraBold.ttf");
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Handjet";
+    src: url("../fonts/Handjet/Handjet-Bold.ttf");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Handjet";
+    src: url("../fonts/Handjet/Handjet-SemiBold.ttf");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Handjet";
+    src: url("../fonts/Handjet/Handjet-Medium.ttf");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Handjet";
+    src: url("../fonts/Handjet/Handjet-Regular.ttf");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Handjet";
+    src: url("../fonts/Handjet/Handjet-Light.ttf");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Handjet";
+    src: url("../fonts/Handjet/Handjet-ExtraLight.ttf");
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Handjet";
+    src: url("../fonts/Handjet/Handjet-Thin.ttf");
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+/*
+    Silkscreen Font
+*/
+
+@font-face {
+    font-family: "Silkscreen";
+    src: url("../fonts/Silkscreen/Silkscreen-Bold.ttf");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Silkscreen";
+    src: url("../fonts/Silkscreen/Silkscreen-Regular.ttf");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
